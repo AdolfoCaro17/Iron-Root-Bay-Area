@@ -1,15 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Iron Root</title>
+  <title>Iron Root Bay Area</title>
   <style>
     :root {
-      --green: #16a34a;
-      --green-dark: #15803d;
-      --green-light: #f0fdf4;
+      --green: #166534;
+      --green-2: #15803d;
+      --green-3: #22c55e;
+      --green-soft: #f0fdf4;
       --text: #18181b;
       --muted: #52525b;
       --border: #e4e4e7;
@@ -30,13 +30,13 @@
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
-      background: #fff;
+      background: var(--bg);
       line-height: 1.5;
     }
 
     a {
-      color: inherit;
       text-decoration: none;
+      color: inherit;
     }
 
     button,
@@ -46,13 +46,14 @@
       font: inherit;
     }
 
-    .container {
-      width: min(1120px, calc(100% - 48px));
-      margin: 0 auto;
+    img {
+      max-width: 100%;
+      display: block;
     }
 
-    .hidden {
-      display: none !important;
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
     }
 
     .site-header {
@@ -60,8 +61,8 @@
       top: 0;
       z-index: 1000;
       background: rgba(255, 255, 255, 0.96);
-      border-bottom: 1px solid var(--border);
       backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
     }
 
     .header-inner {
@@ -72,35 +73,10 @@
       padding: 16px 0;
     }
 
-    .brand-button {
+    .brand {
       display: flex;
       align-items: center;
       gap: 12px;
-      border: 0;
-      background: transparent;
-      cursor: pointer;
-      text-align: left;
-      padding: 0;
-    }
-
-    .brand-title {
-      font-size: 30px;
-      font-weight: 900;
-      line-height: 1;
-      letter-spacing: -0.03em;
-    }
-
-    .brand-title .green {
-      color: var(--green);
-    }
-
-    .brand-subtitle {
-      font-size: 11px;
-      font-weight: 700;
-      color: #71717a;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      margin-top: 4px;
     }
 
     .brand-mark {
@@ -114,7 +90,7 @@
       position: absolute;
       inset: 0;
       border-radius: 999px;
-      background: rgba(22, 163, 74, 0.10);
+      background: rgba(34, 197, 94, 0.12);
     }
 
     .brand-mark .ground {
@@ -133,8 +109,8 @@
       top: 2px;
       width: 20px;
       height: 20px;
-      border-left: 4px solid var(--green);
-      border-top: 4px solid var(--green);
+      border-left: 4px solid var(--green-3);
+      border-top: 4px solid var(--green-3);
       border-radius: 999px 999px 0 0;
       transform: rotate(-25deg);
     }
@@ -145,8 +121,8 @@
       top: 2px;
       width: 20px;
       height: 20px;
-      border-right: 4px solid var(--green);
-      border-top: 4px solid var(--green);
+      border-right: 4px solid var(--green-3);
+      border-top: 4px solid var(--green-3);
       border-radius: 999px 999px 0 0;
       transform: rotate(25deg);
     }
@@ -170,6 +146,26 @@
       border-bottom: 2px solid var(--text);
     }
 
+    .brand-title {
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-title .green {
+      color: var(--green-2);
+    }
+
+    .brand-subtitle {
+      margin-top: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #71717a;
+    }
+
     .nav-links {
       display: flex;
       align-items: center;
@@ -179,18 +175,8 @@
       color: #3f3f46;
     }
 
-    .nav-links a,
-    .nav-links button {
-      border: 0;
-      background: transparent;
-      cursor: pointer;
-      color: inherit;
-      padding: 0;
-    }
-
-    .nav-links a:hover,
-    .nav-links button:hover {
-      color: var(--green-dark);
+    .nav-links a:hover {
+      color: var(--green-2);
     }
 
     .btn {
@@ -213,16 +199,16 @@
     }
 
     .btn-dark:hover {
-      background: var(--green-dark);
+      background: var(--green-2);
     }
 
     .btn-green {
-      background: var(--green);
+      background: var(--green-2);
       color: #fff;
     }
 
     .btn-green:hover {
-      background: var(--green-dark);
+      background: var(--green);
     }
 
     .btn-outline {
@@ -238,45 +224,45 @@
     .hero {
       position: relative;
       overflow: hidden;
-      background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 55%, #f4f4f5 100%);
+      background: linear-gradient(135deg, #effdf3 0%, #ffffff 55%, #f4f4f5 100%);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1.08fr 0.92fr;
       gap: 48px;
       align-items: center;
-      padding: 80px 0 100px;
+      padding: 84px 0 100px;
     }
 
     .pill {
       display: inline-flex;
       align-items: center;
-      border: 1px solid #bbf7d0;
+      border: 1px solid #c7f0d5;
       background: #fff;
       border-radius: 999px;
       padding: 10px 16px;
       font-size: 14px;
-      font-weight: 500;
+      font-weight: 600;
       color: #3f3f46;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
     }
 
     h1 {
-      font-size: 62px;
+      margin: 20px 0 0;
+      font-size: 60px;
       line-height: 1.02;
       letter-spacing: -0.04em;
-      margin: 20px 0 0;
       font-weight: 900;
-      max-width: 700px;
+      max-width: 720px;
     }
 
     .lead {
       margin-top: 24px;
-      font-size: 20px;
-      line-height: 1.7;
-      color: #52525b;
       max-width: 620px;
+      font-size: 20px;
+      line-height: 1.75;
+      color: var(--muted);
     }
 
     .hero-actions {
@@ -290,7 +276,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
-      max-width: 520px;
+      max-width: 560px;
       margin-top: 32px;
     }
 
@@ -298,7 +284,7 @@
       background: #fff;
       border: 1px solid var(--border);
       border-radius: 24px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
     }
 
     .stat-card {
@@ -307,12 +293,13 @@
 
     .stat-card strong {
       display: block;
-      font-size: 32px;
+      font-size: 30px;
       font-weight: 900;
+      color: var(--text);
     }
 
     .stat-card span {
-      color: #52525b;
+      color: var(--muted);
       font-size: 14px;
     }
 
@@ -329,18 +316,18 @@
     }
 
     .blur-green {
-      width: 112px;
-      height: 112px;
-      left: -24px;
-      top: -24px;
+      width: 120px;
+      height: 120px;
+      left: -20px;
+      top: -20px;
       background: #bbf7d0;
     }
 
     .blur-gray {
-      width: 128px;
-      height: 128px;
-      right: 40px;
-      bottom: -40px;
+      width: 130px;
+      height: 130px;
+      right: 30px;
+      bottom: -35px;
       background: #e4e4e7;
     }
 
@@ -351,7 +338,7 @@
       border-radius: 32px;
       background: #fff;
       border: 1px solid var(--border);
-      box-shadow: 0 25px 50px rgba(0,0,0,0.12);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.12);
     }
 
     .dark-panel {
@@ -363,10 +350,10 @@
 
     .eyebrow {
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.22em;
-      color: var(--green);
+      color: var(--green-2);
     }
 
     .eyebrow-light {
@@ -375,24 +362,24 @@
 
     .dark-panel h2 {
       margin: 14px 0 0;
-      font-size: 38px;
+      font-size: 36px;
       line-height: 1.1;
       font-weight: 900;
     }
 
     .mini-grid {
-      margin-top: 18px;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 12px;
-      color: #e4e4e7;
+      margin-top: 18px;
       font-size: 14px;
+      color: #e4e4e7;
     }
 
     .mini-grid div {
-      background: rgba(255,255,255,0.08);
-      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.08);
       padding: 14px;
+      border-radius: 18px;
     }
 
     .two-cards {
@@ -410,17 +397,17 @@
     }
 
     .soft-green {
-      background: var(--green-light);
+      background: var(--green-soft);
     }
 
     .soft-gray {
-      background: #fafafa;
+      background: var(--soft);
     }
 
     .soft-green h3,
     .soft-gray h3 {
       margin: 10px 0 0;
-      font-size: 30px;
+      font-size: 28px;
       line-height: 1.1;
       font-weight: 900;
       color: var(--text);
@@ -433,31 +420,32 @@
     }
 
     .section {
-      padding: 80px 0;
+      padding: 84px 0;
     }
 
     .section-muted {
-      background: #f0fdf4;
+      background: var(--green-soft);
     }
 
     .section-dark {
-      background: #09090b;
+      background: var(--dark);
       color: #fff;
     }
 
     .section-title {
-      font-size: 48px;
+      margin: 12px 0 0;
+      font-size: 46px;
       line-height: 1.05;
       letter-spacing: -0.03em;
       font-weight: 900;
-      margin: 12px 0 0;
     }
 
     .section-subtext {
+      margin-top: 18px;
+      max-width: 760px;
       font-size: 18px;
       line-height: 1.8;
-      color: #52525b;
-      margin-top: 20px;
+      color: var(--muted);
     }
 
     .section-dark .section-subtext {
@@ -465,8 +453,7 @@
     }
 
     .services-grid,
-    .projects-grid,
-    .booking-grid {
+    .projects-grid {
       display: grid;
       gap: 24px;
       margin-top: 40px;
@@ -480,32 +467,25 @@
       grid-template-columns: repeat(3, 1fr);
     }
 
-    .booking-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
     .service-card,
-    .booking-card,
     .project-card {
       border: 1px solid var(--border);
       border-radius: 32px;
       background: #fff;
       padding: 28px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
       transition: 0.2s ease;
     }
 
-    .service-card:hover,
-    .booking-card:hover {
+    .service-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 18px 30px rgba(0,0,0,0.10);
+      box-shadow: 0 18px 30px rgba(0, 0, 0, 0.1);
     }
 
     .service-card h3,
-    .booking-card h3,
     .project-card h3 {
       margin: 0;
-      font-size: 34px;
+      font-size: 32px;
       line-height: 1.1;
       font-weight: 900;
     }
@@ -528,14 +508,14 @@
       width: 10px;
       height: 10px;
       border-radius: 999px;
-      background: var(--green);
+      background: var(--green-2);
       margin-top: 7px;
       flex-shrink: 0;
     }
 
     .why-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.15fr 0.85fr;
       gap: 40px;
       align-items: center;
     }
@@ -546,8 +526,8 @@
     }
 
     .why-item {
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
       color: #f4f4f5;
       border-radius: 24px;
       padding: 20px;
@@ -562,21 +542,22 @@
     }
 
     .small-muted {
-      color: #52525b;
+      color: var(--muted);
     }
 
     .project-image {
       height: 240px;
-      background: linear-gradient(135deg, #e4e4e7 0%, #f4f4f5 50%, #dcfce7 100%);
+      background: linear-gradient(135deg, #d4d4d8 0%, #f4f4f5 48%, #dcfce7 100%);
+      border-radius: 22px;
     }
 
     .project-body {
-      padding: 24px;
+      padding-top: 22px;
     }
 
     .contact-grid {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
+      grid-template-columns: 0.95fr 1.05fr;
       gap: 40px;
       align-items: start;
     }
@@ -594,7 +575,7 @@
       border: 1px solid var(--border);
       border-radius: 32px;
       padding: 28px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
     }
 
     .form-grid {
@@ -616,47 +597,12 @@
     .input:focus,
     .select:focus,
     .textarea:focus {
-      border-color: var(--green);
+      border-color: var(--green-2);
     }
 
     .textarea {
       min-height: 140px;
       resize: vertical;
-    }
-
-    .booking-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 24px;
-      align-items: end;
-      flex-wrap: wrap;
-    }
-
-    .notice {
-      border: 1px solid #bbf7d0;
-      background: #f0fdf4;
-      border-radius: 24px;
-      padding: 16px 20px;
-      font-size: 14px;
-      font-weight: 500;
-      color: #3f3f46;
-    }
-
-    .back-link {
-      display: inline-block;
-      margin-bottom: 24px;
-      color: var(--green-dark);
-      font-weight: 600;
-      cursor: pointer;
-      background: none;
-      border: 0;
-      padding: 0;
-    }
-
-    .booking-form-wrap {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 80px 0;
     }
 
     .footer {
@@ -684,9 +630,13 @@
       .contact-grid,
       .services-grid,
       .projects-grid,
-      .booking-grid,
       .two-cards {
         grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+        max-width: 100%;
       }
 
       h1 {
@@ -695,11 +645,6 @@
 
       .section-title {
         font-size: 38px;
-      }
-
-      .stats {
-        grid-template-columns: 1fr;
-        max-width: 100%;
       }
     }
 
@@ -720,28 +665,19 @@
         font-size: 38px;
       }
 
-      .hero {
-        padding-top: 0;
-      }
-
       .hero-grid {
-        padding: 48px 0 64px;
+        padding: 52px 0 68px;
       }
 
-      .section,
-      .booking-form-wrap {
-        padding: 56px 0;
+      .section {
+        padding: 58px 0;
       }
 
       .service-card h3,
-      .booking-card h3,
-      .project-card h3 {
-        font-size: 28px;
-      }
-
-      .dark-panel h2,
+      .project-card h3,
       .soft-green h3,
-      .soft-gray h3 {
+      .soft-gray h3,
+      .dark-panel h2 {
         font-size: 26px;
       }
     }
@@ -750,7 +686,7 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <button class="brand-button" onclick="setPage('home')">
+      <div class="brand">
         <div class="brand-mark" aria-hidden="true">
           <div class="circle"></div>
           <div class="ground"></div>
@@ -760,384 +696,242 @@
           <div class="base"></div>
         </div>
         <div>
-          <div class="brand-title"><span>IRON</span> <span class="green">ROOT</span></div>
-          <div class="brand-subtitle">Landscaping • Concrete </div>
+          <div class="brand-title">IRON <span class="green">ROOT</span></div>
+          <div class="brand-subtitle">Landscaping • Maintenance • Concrete & Hardscape</div>
         </div>
-      </button>
+      </div>
 
       <nav class="nav-links">
-        <button onclick="setPage('booking-home')">Book Online</button>
-        <a href="#services" id="nav-services">Services</a>
-        <a href="#why-us" id="nav-why">Why Us</a>
-        <a href="#projects" id="nav-projects">Projects</a>
-        <a href="#contact" id="nav-contact">Contact</a>
+        <a href="#services">Services</a>
+        <a href="#why-us">Why Us</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
       </nav>
 
-      <button class="btn btn-dark" onclick="setPage('booking-home')">Get a Free Quote</button>
+      <a class="btn btn-dark" href="#contact">Get a Free Quote</a>
     </div>
   </header>
 
-  <main id="app"></main>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="pill">Bay Area landscape and hardscape services</div>
+          <h1>Clean landscapes, dependable maintenance, and concrete work built to last.</h1>
+          <p class="lead">
+            Iron Root Bay Area helps homeowners, property managers, and businesses with professional
+            landscaping, routine yard maintenance, concrete installation, and hardscape improvements
+            across the Bay Area.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-green" href="#contact">Request a Quote</a>
+            <a class="btn btn-outline" href="tel:+14083841043">Call (408) 384-1043</a>
+          </div>
+
+          <div class="stats">
+            <div class="card stat-card">
+              <strong>Clean</strong>
+              <span>Well-kept outdoor spaces</span>
+            </div>
+            <div class="card stat-card">
+              <strong>Consistent</strong>
+              <span>Reliable maintenance schedules</span>
+            </div>
+            <div class="card stat-card">
+              <strong>Built Right</strong>
+              <span>Concrete and hardscape that lasts</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-panel-wrap">
+          <div class="blur-green"></div>
+          <div class="blur-gray"></div>
+
+          <div class="hero-panel">
+            <div class="dark-panel">
+              <div class="eyebrow eyebrow-light">Iron Root Bay Area</div>
+              <h2>Outdoor spaces that look sharp, stay maintained, and hold up over time.</h2>
+              <div class="mini-grid">
+                <div>Lawn and yard maintenance</div>
+                <div>Landscape cleanup</div>
+                <div>Concrete walkways</div>
+                <div>Patios and hardscape</div>
+              </div>
+            </div>
+
+            <div class="two-cards">
+              <div class="soft-green">
+                <div class="eyebrow">Landscape Maintenance</div>
+                <h3>Routine care that keeps properties looking polished</h3>
+                <p>
+                  Ongoing mowing, edging, trimming, seasonal cleanup, and detail work for a clean,
+                  professional appearance.
+                </p>
+              </div>
+
+              <div class="soft-gray">
+                <div class="eyebrow" style="color:#3f3f46;">Concrete & Hardscape</div>
+                <h3>Functional surfaces with lasting curb appeal</h3>
+                <p>
+                  Patios, walkways, pads, borders, and durable concrete improvements designed to elevate your property.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <div class="eyebrow">Services</div>
+        <h2 class="section-title">Outdoor services centered on appearance, upkeep, and durability.</h2>
+        <p class="section-subtext">
+          Whether you need regular yard care, a landscape refresh, or concrete and hardscape improvements,
+          Iron Root Bay Area delivers clean results with dependable service.
+        </p>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>Landscaping</h3>
+            <ul class="service-list">
+              <li><span class="dot"></span><span>Yard cleanups and property refreshes</span></li>
+              <li><span class="dot"></span><span>Mulch, rock, and decorative ground cover</span></li>
+              <li><span class="dot"></span><span>Planting, sod, and basic landscape installs</span></li>
+              <li><span class="dot"></span><span>Drainage improvements and curb appeal upgrades</span></li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <h3>Maintenance</h3>
+            <ul class="service-list">
+              <li><span class="dot"></span><span>Routine lawn mowing and edging</span></li>
+              <li><span class="dot"></span><span>Trimming, blowing, and cleanup</span></li>
+              <li><span class="dot"></span><span>One-time or recurring service plans</span></li>
+              <li><span class="dot"></span><span>Seasonal maintenance for residential and commercial properties</span></li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <h3>Concrete & Hardscape</h3>
+            <ul class="service-list">
+              <li><span class="dot"></span><span>Patios, walkways, and concrete pads</span></li>
+              <li><span class="dot"></span><span>Borders, paths, and exterior flatwork</span></li>
+              <li><span class="dot"></span><span>Demo and replacement of worn surfaces</span></li>
+              <li><span class="dot"></span><span>Hardscape improvements that add structure and value</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-us" class="section section-dark">
+      <div class="container why-grid">
+        <div>
+          <div class="eyebrow eyebrow-light">Why choose Iron Root</div>
+          <h2 class="section-title">Reliable outdoor work with a clean finish and professional communication.</h2>
+          <p class="section-subtext">
+            We focus on the services property owners need most: attractive landscaping, consistent maintenance,
+            and strong concrete and hardscape work that improves both appearance and function.
+          </p>
+        </div>
+
+        <div class="why-list">
+          <div class="why-item">Fast estimates and straightforward pricing</div>
+          <div class="why-item">Dependable scheduling and responsive communication</div>
+          <div class="why-item">Clean job sites and detail-oriented service</div>
+          <div class="why-item">One team for maintenance, landscaping, and concrete improvements</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-row">
+          <div>
+            <div class="eyebrow">Featured work</div>
+            <h2 class="section-title">Show the type of outdoor work you want to be known for.</h2>
+          </div>
+          <div class="small-muted">Replace these placeholders with real project photos, before-and-after shots, and customer results.</div>
+        </div>
+
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-image"></div>
+            <div class="project-body">
+              <h3>Landscape Refresh</h3>
+              <div class="small-muted" style="margin-top:10px;">
+                Add photos of cleanup work, planting, mulch, edging, and curb appeal improvements.
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image"></div>
+            <div class="project-body">
+              <h3>Maintenance Program</h3>
+              <div class="small-muted" style="margin-top:10px;">
+                Show recurring lawn care, trimming, and clean property upkeep for residential or commercial clients.
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image"></div>
+            <div class="project-body">
+              <h3>Concrete / Hardscape</h3>
+              <div class="small-muted" style="margin-top:10px;">
+                Highlight patios, walkways, concrete pads, pathways, and structured exterior improvements.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-muted">
+      <div class="container contact-grid">
+        <div>
+          <div class="eyebrow">Contact</div>
+          <h2 class="section-title">Request a quote for your next landscaping or concrete project.</h2>
+          <p class="section-subtext">
+            Reach out for recurring maintenance, one-time cleanup, landscape improvements, or concrete and hardscape work.
+          </p>
+
+          <div class="contact-info" style="margin-top:32px;">
+            <div class="line"><strong>Phone:</strong> (408) 384-1043</div>
+            <div class="line"><strong>Email:</strong> hello@ironrootbayarea.com</div>
+            <div class="line"><strong>Service Area:</strong> Bay Area, California</div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form class="form-grid" onsubmit="event.preventDefault(); alert('Thanks! Your request has been submitted.');">
+            <input class="input" type="text" placeholder="Full name" required />
+            <input class="input" type="tel" placeholder="Phone number" required />
+            <input class="input" type="email" placeholder="Email address" />
+            <select class="select" required>
+              <option value="" selected disabled>Select a service</option>
+              <option>Landscaping</option>
+              <option>Maintenance</option>
+              <option>Concrete / Hardscape</option>
+              <option>General Estimate</option>
+            </select>
+            <textarea class="textarea" placeholder="Tell us about your project" required></textarea>
+            <button class="btn btn-dark" type="submit">Send Request</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer class="footer">
     <div class="container footer-inner">
-      <div>© 2026 Iron Root. All rights reserved.</div>
-      <div>Landscaping • Concrete </div>
+      <div>© 2026 Iron Root Bay Area. All rights reserved.</div>
+      <div>Landscaping • Maintenance • Concrete & Hardscape</div>
     </div>
   </footer>
-
-  <script>
-    const services = [
-      {
-        title: 'Landscaping',
-        items: ['Yard cleanups', 'Mulch and rock', 'Planting and sod', 'Drainage improvements']
-      },
-      {
-        title: 'Concrete',
-        items: ['Patios', 'Walkways', 'Driveways', 'Demo and replacement']
-      },
-      {
-        title: 'Dumpster Rentals',
-        items: ['20-yard bins', '25-yard bins', '30-yard bins', 'Flexible pickup scheduling']
-      }
-    ];
-
-    let page = 'home';
-
-    function getPageTitle(currentPage) {
-      switch (currentPage) {
-        case 'home':
-          return 'Home';
-        case 'booking-home':
-          return 'Book Online';
-        case 'dumpster':
-          return 'Book a Dumpster';
-        case 'lawn':
-          return 'Book Lawn Service';
-        default:
-          return 'Iron Root';
-      }
-    }
-
-    function getBookingOptions(currentPage) {
-      if (currentPage === 'dumpster') return ['20 Yard', '25 Yard', '30 Yard'];
-      if (currentPage === 'lawn') return ['Weekly', 'Biweekly', 'Monthly'];
-      return [];
-    }
-
-    function escapeHtml(text) {
-      const div = document.createElement('div');
-      div.textContent = text;
-      return div.innerHTML;
-    }
-
-    function renderServices() {
-      return services.map(service => `
-        <div class="service-card">
-          <h3>${escapeHtml(service.title)}</h3>
-          <ul class="service-list">
-            ${service.items.map(item => `
-              <li>
-                <span class="dot"></span>
-                <span>${escapeHtml(item)}</span>
-              </li>
-            `).join('')}
-          </ul>
-        </div>
-      `).join('');
-    }
-
-    function renderHomePage() {
-      return `
-        <section class="hero">
-          <div class="container hero-grid">
-            <div>
-              <div class="pill">Bay Area outdoor and site services</div>
-              <h1>Built for clean yards, solid concrete, and fast dumpster rentals.</h1>
-              <p class="lead">
-                Iron Root helps homeowners, contractors, and property managers with landscaping,
-                concrete work, and roll-off dumpster rentals across the Bay Area.
-              </p>
-
-              <div class="hero-actions">
-                <button class="btn btn-green" onclick="setPage('booking-home')">Book Online</button>
-                <a class="btn btn-outline" href="tel:+14083841043">Call (408) 384-1043</a>
-              </div>
-
-              <div class="stats">
-                <div class="card stat-card">
-                  <strong>Fast</strong>
-                  <span>Responsive scheduling</span>
-                </div>
-                <div class="card stat-card">
-                  <strong>Clean</strong>
-                  <span>Professional crews</span>
-                </div>
-                <div class="card stat-card">
-                  <strong>Reliable</strong>
-                  <span>Clear communication</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="hero-panel-wrap">
-              <div class="blur-green"></div>
-              <div class="blur-gray"></div>
-              <div class="hero-panel">
-                <div class="dark-panel">
-                  <div class="eyebrow eyebrow-light">Iron Root</div>
-                  <h2>Outdoor and site solutions that look sharp and hold up.</h2>
-                  <div class="mini-grid">
-                    <div>Landscape installs</div>
-                    <div>Concrete patios</div>
-                    <div>Driveways & walkways</div>
-                    <div>Roll-off dumpsters</div>
-                  </div>
-                </div>
-
-                <div class="two-cards">
-                  <div class="soft-green">
-                    <div class="eyebrow">Dumpster Rental</div>
-                    <h3>14, 20, and 30 yard bins</h3>
-                    <p>Easy drop-off and pickup for cleanouts, concrete, and landscape debris.</p>
-                  </div>
-
-                  <div class="soft-gray">
-                    <div class="eyebrow" style="color:#3f3f46;">Concrete & Landscape</div>
-                    <h3>Hardscape and curb appeal</h3>
-                    <p>From fresh installs to property cleanup, we keep projects moving.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="services" class="section">
-          <div class="container">
-            <div class="eyebrow">Services</div>
-            <h2 class="section-title">Everything you need for cleaner, stronger outdoor projects.</h2>
-            <div class="services-grid">
-              ${renderServices()}
-            </div>
-          </div>
-        </section>
-
-        <section id="why-us" class="section section-dark">
-          <div class="container why-grid">
-            <div>
-              <div class="eyebrow eyebrow-light">Why choose Iron Root</div>
-              <h2 class="section-title">A strong local brand with work that speaks for itself.</h2>
-              <p class="section-subtext">
-                We combine the clean look homeowners want with the durability and speed contractors need.
-                That means better communication, cleaner job sites, and work built to last.
-              </p>
-            </div>
-
-            <div class="why-list">
-              ${[
-                'Fast estimates and straightforward pricing',
-                'Professional equipment and dependable crews',
-                'One company for landscape, concrete, and debris hauling',
-                'Branding that looks sharp on site and builds trust'
-              ].map(item => `<div class="why-item">${escapeHtml(item)}</div>`).join('')}
-            </div>
-          </div>
-        </section>
-
-        <section id="projects" class="section">
-          <div class="container">
-            <div class="section-row">
-              <div>
-                <div class="eyebrow">Featured work</div>
-                <h2 class="section-title">A simple site you can keep building on.</h2>
-              </div>
-              <div class="small-muted">Add your own project photos, reviews, and before/after shots here.</div>
-            </div>
-
-            <div class="projects-grid">
-              ${[1,2,3].map(n => `
-                <div class="project-card">
-                  <div class="project-image"></div>
-                  <div class="project-body">
-                    <h3>Project Title ${n}</h3>
-                    <div class="small-muted" style="margin-top:10px;">
-                      Swap this section with real photos of landscaping installs, concrete work, or dumpster rentals.
-                    </div>
-                  </div>
-                </div>
-              `).join('')}
-            </div>
-          </div>
-        </section>
-
-        <section id="contact" class="section section-muted">
-          <div class="container contact-grid">
-            <div>
-              <div class="eyebrow">Contact</div>
-              <h2 class="section-title">Get a quote for your next project.</h2>
-              <p class="section-subtext">
-                Use this section for calls, online quote requests, or service area details.
-              </p>
-
-              <div class="contact-info" style="margin-top:32px;">
-                <div class="line"><strong>Phone:</strong> (408) 384-1043</div>
-                <div class="line"><strong>Email:</strong> ironrootbayarea@gmail.com</div>
-                <div class="line"><strong>Service Area:</strong> Bay Area, California</div>
-              </div>
-            </div>
-
-            <div class="contact-form">
-              <form class="form-grid" onsubmit="event.preventDefault(); alert('Form submitted. Connect this to Formspree, Netlify Forms, or your email service.');">
-                <input class="input" placeholder="Full name" />
-                <input class="input" placeholder="Phone number" />
-                <input class="input" placeholder="Email address" />
-                <select class="select">
-                  <option selected disabled>Select a service</option>
-                  <option>Lawn Maintenance</option>
-                  <option>Landscaping</option>
-                  <option>Concrete</option>
-                  <option>Dumpster Rental</option>
-                </select>
-                <textarea class="textarea" placeholder="Tell us about your project"></textarea>
-                <button class="btn btn-dark" type="submit">Send Request</button>
-              </form>
-            </div>
-          </div>
-        </section>
-      `;
-    }
-
-    function renderBookingHub() {
-      return `
-        <section class="section">
-          <div class="container">
-            <div class="booking-top">
-              <div style="max-width:700px;">
-                <div class="eyebrow">Book online</div>
-                <h2 class="section-title">Choose a service to book</h2>
-                <p class="section-subtext">
-                  Pick a dedicated booking page for dumpster rentals or lawn maintenance.
-                </p>
-              </div>
-
-              <div class="notice">
-                Suggested tools: Jobber, Housecall Pro, Calendly, or a custom booking form
-              </div>
-            </div>
-
-            <div class="booking-grid">
-              <button class="booking-card" onclick="setPage('lawn')" style="text-align:left; cursor:pointer;">
-                <div class="eyebrow">Set up recurring yard service</div>
-                <h3 style="margin-top:12px;">Lawn Maintenance</h3>
-                <p class="small-muted" style="margin-top:16px;">
-                  Keep your property clean and well-maintained with scheduled lawn care, trimming, and seasonal cleanups.
-                </p>
-              </button>
-
-              <button class="booking-card" onclick="setPage('dumpster')" style="text-align:left; cursor:pointer;">
-                <div class="eyebrow">Reserve a roll-off online</div>
-                <h3 style="margin-top:12px;">Dumpster Rental</h3>
-                <p class="small-muted" style="margin-top:16px;">
-                  Perfect for cleanouts, construction debris, yard waste, or remodeling projects—keep your job site clean and efficient.
-                </p>
-              </button>
-            </div>
-          </div>
-        </section>
-      `;
-    }
-
-    function renderBookingPage(config) {
-      return `
-        <section class="booking-form-wrap">
-          <div class="container" style="max-width:760px;">
-            <button class="back-link" onclick="setPage('booking-home')">← Back</button>
-
-            <div class="contact-form">
-              <div class="eyebrow">Online booking</div>
-              <h2 class="section-title" style="margin-top:12px;">${escapeHtml(config.title)}</h2>
-              <p class="section-subtext">${escapeHtml(config.description)}</p>
-
-              <form class="form-grid" style="margin-top:28px;" onsubmit="event.preventDefault(); alert('${escapeHtml(config.buttonLabel).replace(/'/g, "\\'")} submitted.');">
-                <input
-                  class="input"
-                  placeholder="${config.title === 'Book a Dumpster' ? 'Drop-off address' : 'Property address'}"
-                />
-
-                <select class="select">
-                  <option selected disabled>${escapeHtml(config.selectLabel)}</option>
-                  ${config.options.map(option => `<option>${escapeHtml(option)}</option>`).join('')}
-                </select>
-
-                <input class="input" placeholder="Preferred date" />
-                <input class="input" placeholder="Phone number" />
-                <textarea class="textarea" placeholder="Project notes"></textarea>
-
-                <button
-                  type="submit"
-                  class="btn ${config.title === 'Book a Dumpster' ? 'btn-dark' : 'btn-green'}"
-                >
-                  ${escapeHtml(config.buttonLabel)}
-                </button>
-              </form>
-            </div>
-          </div>
-        </section>
-      `;
-    }
-
-    function updateNavState() {
-      const isHome = page === 'home';
-      ['nav-services', 'nav-why', 'nav-projects', 'nav-contact'].forEach(id => {
-        const el = document.getElementById(id);
-        if (!el) return;
-        if (isHome) {
-          el.style.pointerEvents = 'auto';
-          el.style.opacity = '1';
-        } else {
-          el.style.pointerEvents = 'none';
-          el.style.opacity = '0.4';
-        }
-      });
-    }
-
-    function render() {
-      const app = document.getElementById('app');
-
-      if (page === 'booking-home') {
-        app.innerHTML = renderBookingHub();
-      } else if (page === 'dumpster') {
-        app.innerHTML = renderBookingPage({
-          title: 'Book a Dumpster',
-          description: 'Reserve a roll-off bin for cleanouts, concrete debris, landscape debris, or job site cleanup.',
-          selectLabel: 'Select bin size',
-          options: getBookingOptions('dumpster'),
-          buttonLabel: 'Confirm Dumpster Booking'
-        });
-      } else if (page === 'lawn') {
-        app.innerHTML = renderBookingPage({
-          title: 'Book Lawn Service',
-          description: 'Schedule regular lawn maintenance or a one-time cleanup visit for your property.',
-          selectLabel: 'Select visit frequency',
-          options: getBookingOptions('lawn'),
-          buttonLabel: 'Confirm Lawn Booking'
-        });
-      } else {
-        app.innerHTML = renderHomePage();
-      }
-
-      document.title = 'Iron Root | ' + getPageTitle(page);
-      updateNavState();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function setPage(nextPage) {
-      page = nextPage;
-      render();
-    }
-
-    render();
-  </script>
 </body>
 </html>
