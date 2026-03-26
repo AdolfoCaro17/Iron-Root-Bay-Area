@@ -10,24 +10,33 @@
   />
   <style>
     :root {
-      --green-900: #14532d;
-      --green-800: #166534;
-      --green-700: #15803d;
-      --green-500: #22c55e;
-      --green-100: #dcfce7;
-      --green-50: #f0fdf4;
-      --text: #18181b;
-      --muted: #52525b;
-      --border: #e4e4e7;
-      --surface: #ffffff;
-      --surface-soft: #fafafa;
-      --dark: #09090b;
-      --danger: #b91c1c;
-      --success: #166534;
-      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
-      --shadow-lg: 0 24px 50px rgba(0, 0, 0, 0.12);
-      --radius-xl: 24px;
-      --radius-2xl: 32px;
+      --green-dark: #4f8f10;
+      --green-main: #67a814;
+      --green-bright: #86bf0a;
+      --green-soft: #eef7e3;
+
+      --charcoal: #3b3b3f;
+      --charcoal-2: #4a4a4f;
+      --black-soft: #222222;
+
+      --gray-50: #f7f7f5;
+      --gray-100: #f1f1ed;
+      --gray-200: #e6e6df;
+      --gray-300: #d7d7cf;
+      --gray-500: #6a6a68;
+
+      --text: #2d2d2f;
+      --muted: #5f5f5d;
+      --white: #ffffff;
+      --success: #2f6b14;
+      --error: #b42318;
+
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.12);
+
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --radius-2xl: 34px;
     }
 
     * {
@@ -42,7 +51,7 @@
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
-      background: var(--surface);
+      background: var(--gray-50);
       line-height: 1.5;
     }
 
@@ -64,7 +73,7 @@
     }
 
     .container {
-      width: min(1120px, calc(100% - 40px));
+      width: min(1140px, calc(100% - 40px));
       margin: 0 auto;
     }
 
@@ -72,9 +81,9 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.96);
+      background: rgba(247, 247, 245, 0.96);
       backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--gray-200);
     }
 
     .header-inner {
@@ -88,78 +97,17 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
+
     .brand img {
-      height: 60px;
+      height: 64px;
       width: auto;
-    } 
-
-    .brand-mark {
-      position: relative;
-      width: 48px;
-      height: 48px;
-      flex-shrink: 0;
     }
 
-    .brand-mark .circle {
-      position: absolute;
-      inset: 0;
-      border-radius: 999px;
-      background: rgba(34, 197, 94, 0.12);
-    }
-
-    .brand-mark .ground {
-      position: absolute;
-      left: 4px;
-      top: 20px;
-      width: 40px;
-      height: 20px;
-      border-bottom: 4px solid var(--text);
-      border-radius: 999px;
-    }
-
-    .brand-mark .leaf-left {
-      position: absolute;
-      left: 12px;
-      top: 2px;
-      width: 20px;
-      height: 20px;
-      border-left: 4px solid var(--green-500);
-      border-top: 4px solid var(--green-500);
-      border-radius: 999px 999px 0 0;
-      transform: rotate(-25deg);
-    }
-
-    .brand-mark .leaf-right {
-      position: absolute;
-      right: 8px;
-      top: 2px;
-      width: 20px;
-      height: 20px;
-      border-right: 4px solid var(--green-500);
-      border-top: 4px solid var(--green-500);
-      border-radius: 999px 999px 0 0;
-      transform: rotate(25deg);
-    }
-
-    .brand-mark .stem {
-      position: absolute;
-      left: 20px;
-      top: 24px;
-      width: 4px;
-      height: 16px;
-      border-radius: 999px;
-      background: var(--text);
-    }
-
-    .brand-mark .base {
-      position: absolute;
-      left: 16px;
-      top: 36px;
-      width: 32px;
-      height: 12px;
-      border-bottom: 2px solid var(--text);
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
     }
 
     .brand-title {
@@ -167,19 +115,20 @@
       line-height: 1;
       font-weight: 900;
       letter-spacing: -0.03em;
+      color: var(--charcoal);
     }
 
     .brand-title .green {
-      color: var(--green-700);
+      color: var(--green-main);
     }
 
     .brand-subtitle {
-      margin-top: 4px;
+      margin-top: 5px;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #71717a;
+      color: var(--gray-500);
     }
 
     .nav-links {
@@ -187,12 +136,12 @@
       align-items: center;
       gap: 28px;
       font-size: 14px;
-      font-weight: 600;
-      color: #3f3f46;
+      font-weight: 700;
+      color: var(--charcoal-2);
     }
 
     .nav-links a:hover {
-      color: var(--green-700);
+      color: var(--green-dark);
     }
 
     .btn {
@@ -209,58 +158,62 @@
       transform: translateY(-1px);
     }
 
+    .btn-primary {
+      background: var(--green-main);
+      color: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-primary:hover {
+      background: var(--green-dark);
+    }
+
     .btn-dark {
-      background: var(--dark);
-      color: #fff;
+      background: var(--charcoal);
+      color: var(--white);
+      box-shadow: var(--shadow-sm);
     }
 
     .btn-dark:hover {
-      background: var(--green-700);
-    }
-
-    .btn-green {
-      background: var(--green-700);
-      color: #fff;
-    }
-
-    .btn-green:hover {
-      background: var(--green-800);
+      background: var(--green-dark);
     }
 
     .btn-outline {
-      background: #fff;
-      color: var(--text);
-      border: 1px solid #d4d4d8;
+      background: var(--white);
+      color: var(--charcoal);
+      border: 1px solid var(--gray-300);
     }
 
     .btn-outline:hover {
-      border-color: var(--dark);
+      border-color: var(--charcoal);
     }
 
     .hero {
       position: relative;
       overflow: hidden;
-      background: linear-gradient(135deg, #effdf3 0%, #ffffff 55%, #f4f4f5 100%);
+      background:
+        radial-gradient(circle at top right, rgba(134, 191, 10, 0.10), transparent 30%),
+        linear-gradient(135deg, #f3f8ea 0%, #fbfbf8 55%, #efefea 100%);
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.08fr 0.92fr;
-      gap: 48px;
+      gap: 50px;
       align-items: center;
-      padding: 84px 0 100px;
+      padding: 86px 0 104px;
     }
 
     .pill {
       display: inline-flex;
       align-items: center;
-      border: 1px solid #c7f0d5;
-      background: #fff;
+      border: 1px solid #d8e9bc;
+      background: rgba(255, 255, 255, 0.9);
       border-radius: 999px;
       padding: 10px 16px;
       font-size: 14px;
-      font-weight: 600;
-      color: #3f3f46;
+      font-weight: 700;
+      color: var(--charcoal-2);
       box-shadow: var(--shadow-sm);
     }
 
@@ -270,12 +223,13 @@
       line-height: 1.02;
       letter-spacing: -0.04em;
       font-weight: 900;
-      max-width: 720px;
+      max-width: 760px;
+      color: var(--charcoal);
     }
 
     .lead {
       margin-top: 24px;
-      max-width: 620px;
+      max-width: 640px;
       font-size: 20px;
       line-height: 1.75;
       color: var(--muted);
@@ -292,14 +246,14 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
-      max-width: 560px;
-      margin-top: 32px;
+      max-width: 580px;
+      margin-top: 34px;
     }
 
     .card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
       box-shadow: var(--shadow-sm);
     }
 
@@ -309,9 +263,9 @@
 
     .stat-card strong {
       display: block;
-      font-size: 30px;
+      font-size: 29px;
       font-weight: 900;
-      color: var(--text);
+      color: var(--charcoal);
     }
 
     .stat-card span {
@@ -327,24 +281,24 @@
     .blur-gray {
       position: absolute;
       border-radius: 999px;
-      filter: blur(48px);
+      filter: blur(54px);
       z-index: 0;
     }
 
     .blur-green {
-      width: 120px;
-      height: 120px;
-      left: -20px;
-      top: -20px;
-      background: #bbf7d0;
+      width: 130px;
+      height: 130px;
+      left: -18px;
+      top: -18px;
+      background: rgba(134, 191, 10, 0.30);
     }
 
     .blur-gray {
-      width: 130px;
-      height: 130px;
-      right: 30px;
-      bottom: -35px;
-      background: #e4e4e7;
+      width: 150px;
+      height: 150px;
+      right: 26px;
+      bottom: -28px;
+      background: rgba(59, 59, 63, 0.12);
     }
 
     .hero-panel {
@@ -352,14 +306,14 @@
       z-index: 1;
       padding: 32px;
       border-radius: var(--radius-2xl);
-      background: #fff;
-      border: 1px solid var(--border);
+      background: var(--white);
+      border: 1px solid var(--gray-200);
       box-shadow: var(--shadow-lg);
     }
 
     .dark-panel {
-      background: var(--dark);
-      color: #fff;
+      background: linear-gradient(135deg, #3f3f43 0%, #2f2f32 100%);
+      color: var(--white);
       border-radius: 28px;
       padding: 24px;
     }
@@ -369,11 +323,11 @@
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.22em;
-      color: var(--green-700);
+      color: var(--green-dark);
     }
 
     .eyebrow-light {
-      color: #4ade80;
+      color: #bde56f;
     }
 
     .dark-panel h2 {
@@ -389,11 +343,11 @@
       gap: 12px;
       margin-top: 18px;
       font-size: 14px;
-      color: #e4e4e7;
+      color: #f0f0eb;
     }
 
     .mini-grid div {
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.09);
       padding: 14px;
       border-radius: 18px;
     }
@@ -409,15 +363,15 @@
     .soft-gray {
       border-radius: 28px;
       padding: 20px;
-      border: 1px solid var(--border);
+      border: 1px solid var(--gray-200);
     }
 
     .soft-green {
-      background: var(--green-50);
+      background: linear-gradient(180deg, #f3f9e8 0%, #edf6df 100%);
     }
 
     .soft-gray {
-      background: var(--surface-soft);
+      background: linear-gradient(180deg, #f7f7f5 0%, #efefea 100%);
     }
 
     .soft-green h3,
@@ -426,7 +380,7 @@
       font-size: 28px;
       line-height: 1.1;
       font-weight: 900;
-      color: var(--text);
+      color: var(--charcoal);
     }
 
     .soft-green p,
@@ -436,16 +390,16 @@
     }
 
     .section {
-      padding: 84px 0;
+      padding: 86px 0;
     }
 
     .section-muted {
-      background: var(--green-50);
+      background: linear-gradient(180deg, #f4f8ec 0%, #eef5e4 100%);
     }
 
     .section-dark {
-      background: var(--dark);
-      color: #fff;
+      background: linear-gradient(135deg, #3e3e42 0%, #2d2d30 100%);
+      color: var(--white);
     }
 
     .section-title {
@@ -454,18 +408,19 @@
       line-height: 1.05;
       letter-spacing: -0.03em;
       font-weight: 900;
+      color: inherit;
     }
 
     .section-subtext {
       margin-top: 18px;
-      max-width: 760px;
+      max-width: 780px;
       font-size: 18px;
       line-height: 1.8;
       color: var(--muted);
     }
 
     .section-dark .section-subtext {
-      color: #d4d4d8;
+      color: #dfdfd9;
     }
 
     .services-grid,
@@ -485,9 +440,9 @@
 
     .service-card,
     .project-card {
-      border: 1px solid var(--border);
+      border: 1px solid var(--gray-200);
       border-radius: var(--radius-2xl);
-      background: #fff;
+      background: var(--white);
       padding: 28px;
       box-shadow: var(--shadow-sm);
       transition: 0.2s ease;
@@ -505,6 +460,7 @@
       font-size: 32px;
       line-height: 1.1;
       font-weight: 900;
+      color: var(--charcoal);
     }
 
     .service-list {
@@ -525,7 +481,7 @@
       width: 10px;
       height: 10px;
       border-radius: 999px;
-      background: var(--green-700);
+      background: var(--green-main);
       margin-top: 7px;
       flex-shrink: 0;
     }
@@ -543,9 +499,9 @@
     }
 
     .why-item {
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.05);
-      color: #f4f4f5;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.06);
+      color: #f4f4ef;
       border-radius: 24px;
       padding: 20px;
     }
@@ -564,8 +520,10 @@
 
     .project-image {
       height: 240px;
-      background: linear-gradient(135deg, #d4d4d8 0%, #f4f4f5 48%, #dcfce7 100%);
       border-radius: 22px;
+      background:
+        linear-gradient(135deg, rgba(59, 59, 63, 0.12) 0%, rgba(255,255,255,0.55) 50%, rgba(134,191,10,0.18) 100%);
+      border: 1px solid var(--gray-200);
     }
 
     .project-body {
@@ -580,7 +538,7 @@
     }
 
     .contact-info {
-      color: #3f3f46;
+      color: var(--charcoal-2);
     }
 
     .contact-info .line {
@@ -588,8 +546,8 @@
     }
 
     .contact-form {
-      background: #fff;
-      border: 1px solid var(--border);
+      background: var(--white);
+      border: 1px solid var(--gray-200);
       border-radius: var(--radius-2xl);
       padding: 28px;
       box-shadow: var(--shadow-sm);
@@ -604,17 +562,19 @@
     .select,
     .textarea {
       width: 100%;
-      border: 1px solid #d4d4d8;
+      border: 1px solid var(--gray-300);
       border-radius: 18px;
       padding: 14px 16px;
       outline: none;
-      background: #fff;
+      background: var(--white);
+      color: var(--text);
     }
 
     .input:focus,
     .select:focus,
     .textarea:focus {
-      border-color: var(--green-700);
+      border-color: var(--green-main);
+      box-shadow: 0 0 0 3px rgba(103, 168, 20, 0.12);
     }
 
     .textarea {
@@ -631,8 +591,8 @@
     }
 
     .footer {
-      border-top: 1px solid var(--border);
-      background: #fff;
+      border-top: 1px solid var(--gray-200);
+      background: var(--white);
     }
 
     .footer-inner {
@@ -641,7 +601,7 @@
       gap: 16px;
       flex-wrap: wrap;
       padding: 28px 0;
-      color: #71717a;
+      color: var(--gray-500);
       font-size: 14px;
     }
 
@@ -671,19 +631,23 @@
       .section-title {
         font-size: 38px;
       }
+
+      .brand-copy {
+        display: none;
+      }
+
+      .brand img {
+        height: 58px;
+      }
     }
 
     @media (max-width: 640px) {
       .container {
-        width: min(1120px, calc(100% - 28px));
+        width: min(1140px, calc(100% - 28px));
       }
 
       .header-inner {
         flex-wrap: wrap;
-      }
-
-      .brand-title {
-        font-size: 24px;
       }
 
       h1 {
@@ -705,6 +669,10 @@
       .dark-panel h2 {
         font-size: 26px;
       }
+
+      .brand img {
+        height: 52px;
+      }
     }
   </style>
 </head>
@@ -712,13 +680,8 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#top" aria-label="Iron Root Bay Area home">
-        <div class="brand-mark" aria-hidden="true">
-           <img src="logo.png" alt="Iron Root Logo" />
-            <div class="circle"></div>
-
-
-        </div>
-        <div>
+        <img src="logo.png" alt="Iron Root logo" />
+        <div class="brand-copy">
           <div class="brand-title">IRON <span class="green">ROOT</span></div>
           <div class="brand-subtitle">Landscaping • Maintenance • Concrete & Hardscape</div>
         </div>
@@ -748,7 +711,7 @@
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-green" href="#contact">Request a Quote</a>
+            <a class="btn btn-primary" href="#contact">Request a Quote</a>
             <a class="btn btn-outline" href="tel:+14083841043">Call (408) 384-1043</a>
           </div>
 
@@ -795,7 +758,7 @@
               </div>
 
               <div class="soft-gray">
-                <div class="eyebrow" style="color:#3f3f46;">Concrete & Hardscape</div>
+                <div class="eyebrow" style="color:#4a4a4f;">Concrete & Hardscape</div>
                 <h3>Functional surfaces with lasting curb appeal</h3>
                 <p>
                   Patios, walkways, borders, and durable concrete improvements designed to elevate your property.
@@ -810,7 +773,7 @@
     <section id="services" class="section">
       <div class="container">
         <div class="eyebrow">Services</div>
-        <h2 class="section-title">Outdoor work centered on appearance, upkeep, and durability.</h2>
+        <h2 class="section-title" style="color: var(--charcoal);">Outdoor work centered on appearance, upkeep, and durability.</h2>
         <p class="section-subtext">
           Whether you need regular yard care, a landscape refresh, or concrete and hardscape
           improvements, Iron Root Bay Area delivers clean results with dependable service.
@@ -875,7 +838,7 @@
         <div class="section-row">
           <div>
             <div class="eyebrow">Featured work</div>
-            <h2 class="section-title">Show the kind of outdoor work you want to be known for.</h2>
+            <h2 class="section-title" style="color: var(--charcoal);">Show the kind of outdoor work you want to be known for.</h2>
           </div>
           <div class="small-muted">Replace these placeholders with real project photos, before-and-after shots, and customer results.</div>
         </div>
@@ -918,7 +881,7 @@
       <div class="container contact-grid">
         <div>
           <div class="eyebrow">Contact</div>
-          <h2 class="section-title">Request a quote for your next landscaping or concrete project.</h2>
+          <h2 class="section-title" style="color: var(--charcoal);">Request a quote for your next landscaping or concrete project.</h2>
           <p class="section-subtext">
             Reach out for recurring maintenance, one-time cleanup, landscape improvements, or
             concrete and hardscape work.
@@ -935,7 +898,7 @@
           <form
             class="form-grid"
             id="contact-form"
-            action="https://formspree.io/f/xreogajy"
+            action="https://formspree.io/f/YOUR_FORMSPREE_ID"
             method="POST"
           >
             <input class="input" name="name" type="text" placeholder="Full name" required />
@@ -952,7 +915,7 @@
 
             <input type="hidden" name="_subject" value="New Iron Root Bay Area quote request" />
 
-            <button class="btn btn-dark" id="submit-btn" type="submit">Send Request</button>
+            <button class="btn btn-primary" id="submit-btn" type="submit">Send Request</button>
             <div class="form-status" id="form-status" aria-live="polite"></div>
           </form>
         </div>
@@ -977,7 +940,7 @@
         event.preventDefault();
 
         statusBox.style.display = 'block';
-        statusBox.style.color = '#52525b';
+        statusBox.style.color = '#5f5f5d';
         statusBox.textContent = 'Sending your request...';
 
         submitBtn.disabled = true;
@@ -997,14 +960,14 @@
 
           if (response.ok) {
             form.reset();
-            statusBox.style.color = '#166534';
+            statusBox.style.color = '#2f6b14';
             statusBox.textContent = 'Thanks! Your request was sent successfully. We will get back to you soon.';
           } else {
-            statusBox.style.color = '#b91c1c';
+            statusBox.style.color = '#b42318';
             statusBox.textContent = 'Something went wrong. Please try again or contact us directly at ironrootsbayarea@gmail.com.';
           }
         } catch (error) {
-          statusBox.style.color = '#b91c1c';
+          statusBox.style.color = '#b42318';
           statusBox.textContent = 'Something went wrong. Please try again or contact us directly at ironrootsbayarea@gmail.com.';
         } finally {
           submitBtn.disabled = false;
