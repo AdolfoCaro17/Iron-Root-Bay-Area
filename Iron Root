@@ -1,10 +1,1142 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My First Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iron Root</title>
+  <style>
+    :root {
+      --green: #16a34a;
+      --green-dark: #15803d;
+      --green-light: #f0fdf4;
+      --text: #18181b;
+      --muted: #52525b;
+      --border: #e4e4e7;
+      --bg: #ffffff;
+      --soft: #fafafa;
+      --dark: #09090b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 0;
+    }
+
+    .brand-button {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      text-align: left;
+      padding: 0;
+    }
+
+    .brand-title {
+      font-size: 30px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-title .green {
+      color: var(--green);
+    }
+
+    .brand-subtitle {
+      font-size: 11px;
+      font-weight: 700;
+      color: #71717a;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-top: 4px;
+    }
+
+    .brand-mark {
+      position: relative;
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+    }
+
+    .brand-mark .circle {
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.10);
+    }
+
+    .brand-mark .ground {
+      position: absolute;
+      left: 4px;
+      top: 20px;
+      width: 40px;
+      height: 20px;
+      border-bottom: 4px solid var(--text);
+      border-radius: 999px;
+    }
+
+    .brand-mark .leaf-left {
+      position: absolute;
+      left: 12px;
+      top: 2px;
+      width: 20px;
+      height: 20px;
+      border-left: 4px solid var(--green);
+      border-top: 4px solid var(--green);
+      border-radius: 999px 999px 0 0;
+      transform: rotate(-25deg);
+    }
+
+    .brand-mark .leaf-right {
+      position: absolute;
+      right: 8px;
+      top: 2px;
+      width: 20px;
+      height: 20px;
+      border-right: 4px solid var(--green);
+      border-top: 4px solid var(--green);
+      border-radius: 999px 999px 0 0;
+      transform: rotate(25deg);
+    }
+
+    .brand-mark .stem {
+      position: absolute;
+      left: 20px;
+      top: 24px;
+      width: 4px;
+      height: 16px;
+      border-radius: 999px;
+      background: var(--text);
+    }
+
+    .brand-mark .base {
+      position: absolute;
+      left: 16px;
+      top: 36px;
+      width: 32px;
+      height: 12px;
+      border-bottom: 2px solid var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #3f3f46;
+    }
+
+    .nav-links a,
+    .nav-links button {
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      color: inherit;
+      padding: 0;
+    }
+
+    .nav-links a:hover,
+    .nav-links button:hover {
+      color: var(--green-dark);
+    }
+
+    .btn {
+      display: inline-block;
+      border: 0;
+      border-radius: 18px;
+      padding: 14px 22px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-dark {
+      background: var(--dark);
+      color: #fff;
+    }
+
+    .btn-dark:hover {
+      background: var(--green-dark);
+    }
+
+    .btn-green {
+      background: var(--green);
+      color: #fff;
+    }
+
+    .btn-green:hover {
+      background: var(--green-dark);
+    }
+
+    .btn-outline {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid #d4d4d8;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--dark);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 55%, #f4f4f5 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+      padding: 80px 0 100px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid #bbf7d0;
+      background: #fff;
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #3f3f46;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+    }
+
+    h1 {
+      font-size: 62px;
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      margin: 20px 0 0;
+      font-weight: 900;
+      max-width: 700px;
+    }
+
+    .lead {
+      margin-top: 24px;
+      font-size: 20px;
+      line-height: 1.7;
+      color: #52525b;
+      max-width: 620px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 520px;
+      margin-top: 32px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    .stat-card {
+      padding: 18px;
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: 32px;
+      font-weight: 900;
+    }
+
+    .stat-card span {
+      color: #52525b;
+      font-size: 14px;
+    }
+
+    .hero-panel-wrap {
+      position: relative;
+    }
+
+    .blur-green,
+    .blur-gray {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(48px);
+      z-index: 0;
+    }
+
+    .blur-green {
+      width: 112px;
+      height: 112px;
+      left: -24px;
+      top: -24px;
+      background: #bbf7d0;
+    }
+
+    .blur-gray {
+      width: 128px;
+      height: 128px;
+      right: 40px;
+      bottom: -40px;
+      background: #e4e4e7;
+    }
+
+    .hero-panel {
+      position: relative;
+      z-index: 1;
+      padding: 32px;
+      border-radius: 32px;
+      background: #fff;
+      border: 1px solid var(--border);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.12);
+    }
+
+    .dark-panel {
+      background: var(--dark);
+      color: #fff;
+      border-radius: 28px;
+      padding: 24px;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--green);
+    }
+
+    .eyebrow-light {
+      color: #4ade80;
+    }
+
+    .dark-panel h2 {
+      margin: 14px 0 0;
+      font-size: 38px;
+      line-height: 1.1;
+      font-weight: 900;
+    }
+
+    .mini-grid {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      color: #e4e4e7;
+      font-size: 14px;
+    }
+
+    .mini-grid div {
+      background: rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 14px;
+    }
+
+    .two-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .soft-green,
+    .soft-gray {
+      border-radius: 28px;
+      padding: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .soft-green {
+      background: var(--green-light);
+    }
+
+    .soft-gray {
+      background: #fafafa;
+    }
+
+    .soft-green h3,
+    .soft-gray h3 {
+      margin: 10px 0 0;
+      font-size: 30px;
+      line-height: 1.1;
+      font-weight: 900;
+      color: var(--text);
+    }
+
+    .soft-green p,
+    .soft-gray p {
+      margin-top: 10px;
+      color: var(--muted);
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-muted {
+      background: #f0fdf4;
+    }
+
+    .section-dark {
+      background: #09090b;
+      color: #fff;
+    }
+
+    .section-title {
+      font-size: 48px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      font-weight: 900;
+      margin: 12px 0 0;
+    }
+
+    .section-subtext {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #52525b;
+      margin-top: 20px;
+    }
+
+    .section-dark .section-subtext {
+      color: #d4d4d8;
+    }
+
+    .services-grid,
+    .projects-grid,
+    .booking-grid {
+      display: grid;
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .projects-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .booking-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .service-card,
+    .booking-card,
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      background: #fff;
+      padding: 28px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      transition: 0.2s ease;
+    }
+
+    .service-card:hover,
+    .booking-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 30px rgba(0,0,0,0.10);
+    }
+
+    .service-card h3,
+    .booking-card h3,
+    .project-card h3 {
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.1;
+      font-weight: 900;
+    }
+
+    .service-list {
+      list-style: none;
+      padding: 0;
+      margin: 22px 0 0;
+    }
+
+    .service-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--green);
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .why-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .why-item {
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
+      color: #f4f4f5;
+      border-radius: 24px;
+      padding: 20px;
+    }
+
+    .section-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      flex-wrap: wrap;
+    }
+
+    .small-muted {
+      color: #52525b;
+    }
+
+    .project-image {
+      height: 240px;
+      background: linear-gradient(135deg, #e4e4e7 0%, #f4f4f5 50%, #dcfce7 100%);
+    }
+
+    .project-body {
+      padding: 24px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .contact-info {
+      color: #3f3f46;
+    }
+
+    .contact-info .line {
+      margin-bottom: 14px;
+    }
+
+    .contact-form {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      padding: 28px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .input,
+    .select,
+    .textarea {
+      width: 100%;
+      border: 1px solid #d4d4d8;
+      border-radius: 18px;
+      padding: 14px 16px;
+      outline: none;
+      background: #fff;
+    }
+
+    .input:focus,
+    .select:focus,
+    .textarea:focus {
+      border-color: var(--green);
+    }
+
+    .textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .booking-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      flex-wrap: wrap;
+    }
+
+    .notice {
+      border: 1px solid #bbf7d0;
+      background: #f0fdf4;
+      border-radius: 24px;
+      padding: 16px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #3f3f46;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 24px;
+      color: var(--green-dark);
+      font-weight: 600;
+      cursor: pointer;
+      background: none;
+      border: 0;
+      padding: 0;
+    }
+
+    .booking-form-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 80px 0;
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      background: #fff;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 28px 0;
+      color: #71717a;
+      font-size: 14px;
+    }
+
+    @media (max-width: 960px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .why-grid,
+      .contact-grid,
+      .services-grid,
+      .projects-grid,
+      .booking-grid,
+      .two-cards {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 46px;
+      }
+
+      .section-title {
+        font-size: 38px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(1120px, calc(100% - 28px));
+      }
+
+      .header-inner {
+        flex-wrap: wrap;
+      }
+
+      .brand-title {
+        font-size: 24px;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      .hero {
+        padding-top: 0;
+      }
+
+      .hero-grid {
+        padding: 48px 0 64px;
+      }
+
+      .section,
+      .booking-form-wrap {
+        padding: 56px 0;
+      }
+
+      .service-card h3,
+      .booking-card h3,
+      .project-card h3 {
+        font-size: 28px;
+      }
+
+      .dark-panel h2,
+      .soft-green h3,
+      .soft-gray h3 {
+        font-size: 26px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome to my website 🚀</h1>
-  <p>This is my first GitHub Pages site.</p>
+  <header class="site-header">
+    <div class="container header-inner">
+      <button class="brand-button" onclick="setPage('home')">
+        <div class="brand-mark" aria-hidden="true">
+          <div class="circle"></div>
+          <div class="ground"></div>
+          <div class="leaf-left"></div>
+          <div class="leaf-right"></div>
+          <div class="stem"></div>
+          <div class="base"></div>
+        </div>
+        <div>
+          <div class="brand-title"><span>IRON</span> <span class="green">ROOT</span></div>
+          <div class="brand-subtitle">Landscaping • Concrete • Dumpster Rentals</div>
+        </div>
+      </button>
+
+      <nav class="nav-links">
+        <button onclick="setPage('booking-home')">Book Online</button>
+        <a href="#services" id="nav-services">Services</a>
+        <a href="#why-us" id="nav-why">Why Us</a>
+        <a href="#projects" id="nav-projects">Projects</a>
+        <a href="#contact" id="nav-contact">Contact</a>
+      </nav>
+
+      <button class="btn btn-dark" onclick="setPage('booking-home')">Get a Free Quote</button>
+    </div>
+  </header>
+
+  <main id="app"></main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© 2026 Iron Root. All rights reserved.</div>
+      <div>Landscaping • Concrete • Dumpster Rentals</div>
+    </div>
+  </footer>
+
+  <script>
+    const services = [
+      {
+        title: 'Landscaping',
+        items: ['Yard cleanups', 'Mulch and rock', 'Planting and sod', 'Drainage improvements']
+      },
+      {
+        title: 'Concrete',
+        items: ['Patios', 'Walkways', 'Driveways', 'Demo and replacement']
+      },
+      {
+        title: 'Dumpster Rentals',
+        items: ['20-yard bins', '25-yard bins', '30-yard bins', 'Flexible pickup scheduling']
+      }
+    ];
+
+    let page = 'home';
+
+    function getPageTitle(currentPage) {
+      switch (currentPage) {
+        case 'home':
+          return 'Home';
+        case 'booking-home':
+          return 'Book Online';
+        case 'dumpster':
+          return 'Book a Dumpster';
+        case 'lawn':
+          return 'Book Lawn Service';
+        default:
+          return 'Iron Root';
+      }
+    }
+
+    function getBookingOptions(currentPage) {
+      if (currentPage === 'dumpster') return ['14 Yard', '20 Yard', '30 Yard'];
+      if (currentPage === 'lawn') return ['Weekly', 'Biweekly', 'One-Time'];
+      return [];
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function renderServices() {
+      return services.map(service => `
+        <div class="service-card">
+          <h3>${escapeHtml(service.title)}</h3>
+          <ul class="service-list">
+            ${service.items.map(item => `
+              <li>
+                <span class="dot"></span>
+                <span>${escapeHtml(item)}</span>
+              </li>
+            `).join('')}
+          </ul>
+        </div>
+      `).join('');
+    }
+
+    function renderHomePage() {
+      return `
+        <section class="hero">
+          <div class="container hero-grid">
+            <div>
+              <div class="pill">Bay Area outdoor and site services</div>
+              <h1>Built for clean yards, solid concrete, and fast dumpster rentals.</h1>
+              <p class="lead">
+                Iron Root helps homeowners, contractors, and property managers with landscaping,
+                concrete work, and roll-off dumpster rentals across the Bay Area.
+              </p>
+
+              <div class="hero-actions">
+                <button class="btn btn-green" onclick="setPage('booking-home')">Book Online</button>
+                <a class="btn btn-outline" href="tel:+14083841043">Call (408) 384-1043</a>
+              </div>
+
+              <div class="stats">
+                <div class="card stat-card">
+                  <strong>Fast</strong>
+                  <span>Responsive scheduling</span>
+                </div>
+                <div class="card stat-card">
+                  <strong>Clean</strong>
+                  <span>Professional crews</span>
+                </div>
+                <div class="card stat-card">
+                  <strong>Reliable</strong>
+                  <span>Clear communication</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-panel-wrap">
+              <div class="blur-green"></div>
+              <div class="blur-gray"></div>
+              <div class="hero-panel">
+                <div class="dark-panel">
+                  <div class="eyebrow eyebrow-light">Iron Root</div>
+                  <h2>Outdoor and site solutions that look sharp and hold up.</h2>
+                  <div class="mini-grid">
+                    <div>Landscape installs</div>
+                    <div>Concrete patios</div>
+                    <div>Driveways & walkways</div>
+                    <div>Roll-off dumpsters</div>
+                  </div>
+                </div>
+
+                <div class="two-cards">
+                  <div class="soft-green">
+                    <div class="eyebrow">Dumpster Rental</div>
+                    <h3>14, 20, and 30 yard bins</h3>
+                    <p>Easy drop-off and pickup for cleanouts, concrete, and landscape debris.</p>
+                  </div>
+
+                  <div class="soft-gray">
+                    <div class="eyebrow" style="color:#3f3f46;">Concrete & Landscape</div>
+                    <h3>Hardscape and curb appeal</h3>
+                    <p>From fresh installs to property cleanup, we keep projects moving.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="services" class="section">
+          <div class="container">
+            <div class="eyebrow">Services</div>
+            <h2 class="section-title">Everything you need for cleaner, stronger outdoor projects.</h2>
+            <div class="services-grid">
+              ${renderServices()}
+            </div>
+          </div>
+        </section>
+
+        <section id="why-us" class="section section-dark">
+          <div class="container why-grid">
+            <div>
+              <div class="eyebrow eyebrow-light">Why choose Iron Root</div>
+              <h2 class="section-title">A strong local brand with work that speaks for itself.</h2>
+              <p class="section-subtext">
+                We combine the clean look homeowners want with the durability and speed contractors need.
+                That means better communication, cleaner job sites, and work built to last.
+              </p>
+            </div>
+
+            <div class="why-list">
+              ${[
+                'Fast estimates and straightforward pricing',
+                'Professional equipment and dependable crews',
+                'One company for landscape, concrete, and debris hauling',
+                'Branding that looks sharp on site and builds trust'
+              ].map(item => `<div class="why-item">${escapeHtml(item)}</div>`).join('')}
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" class="section">
+          <div class="container">
+            <div class="section-row">
+              <div>
+                <div class="eyebrow">Featured work</div>
+                <h2 class="section-title">A simple site you can keep building on.</h2>
+              </div>
+              <div class="small-muted">Add your own project photos, reviews, and before/after shots here.</div>
+            </div>
+
+            <div class="projects-grid">
+              ${[1,2,3].map(n => `
+                <div class="project-card">
+                  <div class="project-image"></div>
+                  <div class="project-body">
+                    <h3>Project Title ${n}</h3>
+                    <div class="small-muted" style="margin-top:10px;">
+                      Swap this section with real photos of landscaping installs, concrete work, or dumpster rentals.
+                    </div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" class="section section-muted">
+          <div class="container contact-grid">
+            <div>
+              <div class="eyebrow">Contact</div>
+              <h2 class="section-title">Get a quote for your next project.</h2>
+              <p class="section-subtext">
+                Use this section for calls, online quote requests, or service area details.
+              </p>
+
+              <div class="contact-info" style="margin-top:32px;">
+                <div class="line"><strong>Phone:</strong> (408) 384-1043</div>
+                <div class="line"><strong>Email:</strong> hello@ironrootsite.com</div>
+                <div class="line"><strong>Service Area:</strong> Bay Area, California</div>
+              </div>
+            </div>
+
+            <div class="contact-form">
+              <form class="form-grid" onsubmit="event.preventDefault(); alert('Form submitted. Connect this to Formspree, Netlify Forms, or your email service.');">
+                <input class="input" placeholder="Full name" />
+                <input class="input" placeholder="Phone number" />
+                <input class="input" placeholder="Email address" />
+                <select class="select">
+                  <option selected disabled>Select a service</option>
+                  <option>Lawn Maintenance</option>
+                  <option>Landscaping</option>
+                  <option>Concrete</option>
+                  <option>Dumpster Rental</option>
+                </select>
+                <textarea class="textarea" placeholder="Tell us about your project"></textarea>
+                <button class="btn btn-dark" type="submit">Send Request</button>
+              </form>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function renderBookingHub() {
+      return `
+        <section class="section">
+          <div class="container">
+            <div class="booking-top">
+              <div style="max-width:700px;">
+                <div class="eyebrow">Book online</div>
+                <h2 class="section-title">Choose a service to book</h2>
+                <p class="section-subtext">
+                  Pick a dedicated booking page for dumpster rentals or lawn maintenance.
+                </p>
+              </div>
+
+              <div class="notice">
+                Suggested tools: Jobber, Housecall Pro, Calendly, or a custom booking form
+              </div>
+            </div>
+
+            <div class="booking-grid">
+              <button class="booking-card" onclick="setPage('lawn')" style="text-align:left; cursor:pointer;">
+                <div class="eyebrow">Set up recurring yard service</div>
+                <h3 style="margin-top:12px;">Lawn Maintenance</h3>
+                <p class="small-muted" style="margin-top:16px;">
+                  Keep your property clean and well-maintained with scheduled lawn care, trimming, and seasonal cleanups.
+                </p>
+              </button>
+
+              <button class="booking-card" onclick="setPage('dumpster')" style="text-align:left; cursor:pointer;">
+                <div class="eyebrow">Reserve a roll-off online</div>
+                <h3 style="margin-top:12px;">Dumpster Rental</h3>
+                <p class="small-muted" style="margin-top:16px;">
+                  Perfect for cleanouts, construction debris, yard waste, or remodeling projects—keep your job site clean and efficient.
+                </p>
+              </button>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function renderBookingPage(config) {
+      return `
+        <section class="booking-form-wrap">
+          <div class="container" style="max-width:760px;">
+            <button class="back-link" onclick="setPage('booking-home')">← Back</button>
+
+            <div class="contact-form">
+              <div class="eyebrow">Online booking</div>
+              <h2 class="section-title" style="margin-top:12px;">${escapeHtml(config.title)}</h2>
+              <p class="section-subtext">${escapeHtml(config.description)}</p>
+
+              <form class="form-grid" style="margin-top:28px;" onsubmit="event.preventDefault(); alert('${escapeHtml(config.buttonLabel).replace(/'/g, "\\'")} submitted.');">
+                <input
+                  class="input"
+                  placeholder="${config.title === 'Book a Dumpster' ? 'Drop-off address' : 'Property address'}"
+                />
+
+                <select class="select">
+                  <option selected disabled>${escapeHtml(config.selectLabel)}</option>
+                  ${config.options.map(option => `<option>${escapeHtml(option)}</option>`).join('')}
+                </select>
+
+                <input class="input" placeholder="Preferred date" />
+                <input class="input" placeholder="Phone number" />
+                <textarea class="textarea" placeholder="Project notes"></textarea>
+
+                <button
+                  type="submit"
+                  class="btn ${config.title === 'Book a Dumpster' ? 'btn-dark' : 'btn-green'}"
+                >
+                  ${escapeHtml(config.buttonLabel)}
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function updateNavState() {
+      const isHome = page === 'home';
+      ['nav-services', 'nav-why', 'nav-projects', 'nav-contact'].forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        if (isHome) {
+          el.style.pointerEvents = 'auto';
+          el.style.opacity = '1';
+        } else {
+          el.style.pointerEvents = 'none';
+          el.style.opacity = '0.4';
+        }
+      });
+    }
+
+    function render() {
+      const app = document.getElementById('app');
+
+      if (page === 'booking-home') {
+        app.innerHTML = renderBookingHub();
+      } else if (page === 'dumpster') {
+        app.innerHTML = renderBookingPage({
+          title: 'Book a Dumpster',
+          description: 'Reserve a roll-off bin for cleanouts, concrete debris, landscape debris, or job site cleanup.',
+          selectLabel: 'Select bin size',
+          options: getBookingOptions('dumpster'),
+          buttonLabel: 'Confirm Dumpster Booking'
+        });
+      } else if (page === 'lawn') {
+        app.innerHTML = renderBookingPage({
+          title: 'Book Lawn Service',
+          description: 'Schedule regular lawn maintenance or a one-time cleanup visit for your property.',
+          selectLabel: 'Select visit frequency',
+          options: getBookingOptions('lawn'),
+          buttonLabel: 'Confirm Lawn Booking'
+        });
+      } else {
+        app.innerHTML = renderHomePage();
+      }
+
+      document.title = 'Iron Root | ' + getPageTitle(page);
+      updateNavState();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function setPage(nextPage) {
+      page = nextPage;
+      render();
+    }
+
+    render();
+  </script>
 </body>
 </html>
