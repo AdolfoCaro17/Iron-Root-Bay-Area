@@ -4,18 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Iron Root Bay Area</title>
+  <meta
+    name="description"
+    content="Iron Root Bay Area provides landscaping, maintenance, concrete, and hardscape services across the Bay Area."
+  />
   <style>
     :root {
-      --green: #166534;
-      --green-2: #15803d;
-      --green-3: #22c55e;
-      --green-soft: #f0fdf4;
+      --green-900: #14532d;
+      --green-800: #166534;
+      --green-700: #15803d;
+      --green-500: #22c55e;
+      --green-100: #dcfce7;
+      --green-50: #f0fdf4;
       --text: #18181b;
       --muted: #52525b;
       --border: #e4e4e7;
-      --bg: #ffffff;
-      --soft: #fafafa;
+      --surface: #ffffff;
+      --surface-soft: #fafafa;
       --dark: #09090b;
+      --danger: #b91c1c;
+      --success: #166534;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 24px 50px rgba(0, 0, 0, 0.12);
+      --radius-xl: 24px;
+      --radius-2xl: 32px;
     }
 
     * {
@@ -30,13 +42,18 @@
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
-      background: var(--bg);
+      background: var(--surface);
       line-height: 1.5;
     }
 
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
     }
 
     button,
@@ -44,11 +61,6 @@
     select,
     textarea {
       font: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
     }
 
     .container {
@@ -109,8 +121,8 @@
       top: 2px;
       width: 20px;
       height: 20px;
-      border-left: 4px solid var(--green-3);
-      border-top: 4px solid var(--green-3);
+      border-left: 4px solid var(--green-500);
+      border-top: 4px solid var(--green-500);
       border-radius: 999px 999px 0 0;
       transform: rotate(-25deg);
     }
@@ -121,8 +133,8 @@
       top: 2px;
       width: 20px;
       height: 20px;
-      border-right: 4px solid var(--green-3);
-      border-top: 4px solid var(--green-3);
+      border-right: 4px solid var(--green-500);
+      border-top: 4px solid var(--green-500);
       border-radius: 999px 999px 0 0;
       transform: rotate(25deg);
     }
@@ -154,7 +166,7 @@
     }
 
     .brand-title .green {
-      color: var(--green-2);
+      color: var(--green-700);
     }
 
     .brand-subtitle {
@@ -176,7 +188,7 @@
     }
 
     .nav-links a:hover {
-      color: var(--green-2);
+      color: var(--green-700);
     }
 
     .btn {
@@ -199,16 +211,16 @@
     }
 
     .btn-dark:hover {
-      background: var(--green-2);
+      background: var(--green-700);
     }
 
     .btn-green {
-      background: var(--green-2);
+      background: var(--green-700);
       color: #fff;
     }
 
     .btn-green:hover {
-      background: var(--green);
+      background: var(--green-800);
     }
 
     .btn-outline {
@@ -245,7 +257,7 @@
       font-size: 14px;
       font-weight: 600;
       color: #3f3f46;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      box-shadow: var(--shadow-sm);
     }
 
     h1 {
@@ -283,8 +295,8 @@
     .card {
       background: #fff;
       border: 1px solid var(--border);
-      border-radius: 24px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm);
     }
 
     .stat-card {
@@ -335,10 +347,10 @@
       position: relative;
       z-index: 1;
       padding: 32px;
-      border-radius: 32px;
+      border-radius: var(--radius-2xl);
       background: #fff;
       border: 1px solid var(--border);
-      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.12);
+      box-shadow: var(--shadow-lg);
     }
 
     .dark-panel {
@@ -353,7 +365,7 @@
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.22em;
-      color: var(--green-2);
+      color: var(--green-700);
     }
 
     .eyebrow-light {
@@ -397,11 +409,11 @@
     }
 
     .soft-green {
-      background: var(--green-soft);
+      background: var(--green-50);
     }
 
     .soft-gray {
-      background: var(--soft);
+      background: var(--surface-soft);
     }
 
     .soft-green h3,
@@ -424,7 +436,7 @@
     }
 
     .section-muted {
-      background: var(--green-soft);
+      background: var(--green-50);
     }
 
     .section-dark {
@@ -470,16 +482,17 @@
     .service-card,
     .project-card {
       border: 1px solid var(--border);
-      border-radius: 32px;
+      border-radius: var(--radius-2xl);
       background: #fff;
       padding: 28px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      box-shadow: var(--shadow-sm);
       transition: 0.2s ease;
     }
 
-    .service-card:hover {
+    .service-card:hover,
+    .project-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 18px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 18px 30px rgba(0, 0, 0, 0.10);
     }
 
     .service-card h3,
@@ -508,7 +521,7 @@
       width: 10px;
       height: 10px;
       border-radius: 999px;
-      background: var(--green-2);
+      background: var(--green-700);
       margin-top: 7px;
       flex-shrink: 0;
     }
@@ -573,9 +586,9 @@
     .contact-form {
       background: #fff;
       border: 1px solid var(--border);
-      border-radius: 32px;
+      border-radius: var(--radius-2xl);
       padding: 28px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      box-shadow: var(--shadow-sm);
     }
 
     .form-grid {
@@ -597,12 +610,20 @@
     .input:focus,
     .select:focus,
     .textarea:focus {
-      border-color: var(--green-2);
+      border-color: var(--green-700);
     }
 
     .textarea {
       min-height: 140px;
       resize: vertical;
+    }
+
+    .form-status {
+      display: none;
+      margin-top: 4px;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.5;
     }
 
     .footer {
@@ -686,7 +707,7 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <div class="brand">
+      <a class="brand" href="#top" aria-label="Iron Root Bay Area home">
         <div class="brand-mark" aria-hidden="true">
           <div class="circle"></div>
           <div class="ground"></div>
@@ -699,7 +720,7 @@
           <div class="brand-title">IRON <span class="green">ROOT</span></div>
           <div class="brand-subtitle">Landscaping • Maintenance • Concrete & Hardscape</div>
         </div>
-      </div>
+      </a>
 
       <nav class="nav-links">
         <a href="#services">Services</a>
@@ -712,15 +733,15 @@
     </div>
   </header>
 
-  <main>
+  <main id="top">
     <section class="hero">
       <div class="container hero-grid">
         <div>
           <div class="pill">Bay Area landscape and hardscape services</div>
-          <h1>Clean landscapes, dependable maintenance, and concrete work built to last.</h1>
+          <h1>Clean landscapes, reliable maintenance, and concrete work built to last.</h1>
           <p class="lead">
             Iron Root Bay Area helps homeowners, property managers, and businesses with professional
-            landscaping, routine yard maintenance, concrete installation, and hardscape improvements
+            landscaping, recurring maintenance, concrete installation, and hardscape improvements
             across the Bay Area.
           </p>
 
@@ -732,11 +753,11 @@
           <div class="stats">
             <div class="card stat-card">
               <strong>Clean</strong>
-              <span>Well-kept outdoor spaces</span>
+              <span>Sharp, well-kept outdoor spaces</span>
             </div>
             <div class="card stat-card">
               <strong>Consistent</strong>
-              <span>Reliable maintenance schedules</span>
+              <span>Dependable recurring maintenance</span>
             </div>
             <div class="card stat-card">
               <strong>Built Right</strong>
@@ -752,7 +773,7 @@
           <div class="hero-panel">
             <div class="dark-panel">
               <div class="eyebrow eyebrow-light">Iron Root Bay Area</div>
-              <h2>Outdoor spaces that look sharp, stay maintained, and hold up over time.</h2>
+              <h2>Outdoor spaces that look polished, stay maintained, and hold up over time.</h2>
               <div class="mini-grid">
                 <div>Lawn and yard maintenance</div>
                 <div>Landscape cleanup</div>
@@ -775,7 +796,7 @@
                 <div class="eyebrow" style="color:#3f3f46;">Concrete & Hardscape</div>
                 <h3>Functional surfaces with lasting curb appeal</h3>
                 <p>
-                  Patios, walkways, pads, borders, and durable concrete improvements designed to elevate your property.
+                  Patios, walkways, borders, and durable concrete improvements designed to elevate your property.
                 </p>
               </div>
             </div>
@@ -787,10 +808,10 @@
     <section id="services" class="section">
       <div class="container">
         <div class="eyebrow">Services</div>
-        <h2 class="section-title">Outdoor services centered on appearance, upkeep, and durability.</h2>
+        <h2 class="section-title">Outdoor work centered on appearance, upkeep, and durability.</h2>
         <p class="section-subtext">
-          Whether you need regular yard care, a landscape refresh, or concrete and hardscape improvements,
-          Iron Root Bay Area delivers clean results with dependable service.
+          Whether you need regular yard care, a landscape refresh, or concrete and hardscape
+          improvements, Iron Root Bay Area delivers clean results with dependable service.
         </p>
 
         <div class="services-grid">
@@ -810,7 +831,7 @@
               <li><span class="dot"></span><span>Routine lawn mowing and edging</span></li>
               <li><span class="dot"></span><span>Trimming, blowing, and cleanup</span></li>
               <li><span class="dot"></span><span>One-time or recurring service plans</span></li>
-              <li><span class="dot"></span><span>Seasonal maintenance for residential and commercial properties</span></li>
+              <li><span class="dot"></span><span>Seasonal upkeep for residential and commercial properties</span></li>
             </ul>
           </div>
 
@@ -833,8 +854,8 @@
           <div class="eyebrow eyebrow-light">Why choose Iron Root</div>
           <h2 class="section-title">Reliable outdoor work with a clean finish and professional communication.</h2>
           <p class="section-subtext">
-            We focus on the services property owners need most: attractive landscaping, consistent maintenance,
-            and strong concrete and hardscape work that improves both appearance and function.
+            We focus on the services property owners need most: attractive landscaping, consistent
+            maintenance, and strong concrete and hardscape work that improves both appearance and function.
           </p>
         </div>
 
@@ -852,7 +873,7 @@
         <div class="section-row">
           <div>
             <div class="eyebrow">Featured work</div>
-            <h2 class="section-title">Show the type of outdoor work you want to be known for.</h2>
+            <h2 class="section-title">Show the kind of outdoor work you want to be known for.</h2>
           </div>
           <div class="small-muted">Replace these placeholders with real project photos, before-and-after shots, and customer results.</div>
         </div>
@@ -897,30 +918,40 @@
           <div class="eyebrow">Contact</div>
           <h2 class="section-title">Request a quote for your next landscaping or concrete project.</h2>
           <p class="section-subtext">
-            Reach out for recurring maintenance, one-time cleanup, landscape improvements, or concrete and hardscape work.
+            Reach out for recurring maintenance, one-time cleanup, landscape improvements, or
+            concrete and hardscape work.
           </p>
 
           <div class="contact-info" style="margin-top:32px;">
             <div class="line"><strong>Phone:</strong> (408) 384-1043</div>
-            <div class="line"><strong>Email:</strong> hello@ironrootbayarea.com</div>
+            <div class="line"><strong>Email:</strong> ironrootsbayarea@gmail.com</div>
             <div class="line"><strong>Service Area:</strong> Bay Area, California</div>
           </div>
         </div>
 
         <div class="contact-form">
-          <form class="form-grid" onsubmit="event.preventDefault(); alert('Thanks! Your request has been submitted.');">
-            <input class="input" type="text" placeholder="Full name" required />
-            <input class="input" type="tel" placeholder="Phone number" required />
-            <input class="input" type="email" placeholder="Email address" />
-            <select class="select" required>
+          <form
+            class="form-grid"
+            id="contact-form"
+            action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+            method="POST"
+          >
+            <input class="input" name="name" type="text" placeholder="Full name" required />
+            <input class="input" name="phone" type="tel" placeholder="Phone number" required />
+            <input class="input" name="email" type="email" placeholder="Email address" />
+            <select class="select" name="service" required>
               <option value="" selected disabled>Select a service</option>
-              <option>Landscaping</option>
-              <option>Maintenance</option>
-              <option>Concrete / Hardscape</option>
-              <option>General Estimate</option>
+              <option value="Landscaping">Landscaping</option>
+              <option value="Maintenance">Maintenance</option>
+              <option value="Concrete / Hardscape">Concrete / Hardscape</option>
+              <option value="General Estimate">General Estimate</option>
             </select>
-            <textarea class="textarea" placeholder="Tell us about your project" required></textarea>
-            <button class="btn btn-dark" type="submit">Send Request</button>
+            <textarea class="textarea" name="message" placeholder="Tell us about your project" required></textarea>
+
+            <input type="hidden" name="_subject" value="New Iron Root Bay Area quote request" />
+
+            <button class="btn btn-dark" id="submit-btn" type="submit">Send Request</button>
+            <div class="form-status" id="form-status" aria-live="polite"></div>
           </form>
         </div>
       </div>
@@ -933,5 +964,53 @@
       <div>Landscaping • Maintenance • Concrete & Hardscape</div>
     </div>
   </footer>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    const statusBox = document.getElementById('form-status');
+    const submitBtn = document.getElementById('submit-btn');
+
+    if (form && statusBox && submitBtn) {
+      form.addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        statusBox.style.display = 'block';
+        statusBox.style.color = '#52525b';
+        statusBox.textContent = 'Sending your request...';
+
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.7';
+        submitBtn.style.cursor = 'not-allowed';
+
+        try {
+          const formData = new FormData(form);
+
+          const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: {
+              Accept: 'application/json'
+            }
+          });
+
+          if (response.ok) {
+            form.reset();
+            statusBox.style.color = '#166534';
+            statusBox.textContent = 'Thanks! Your request was sent successfully. We will get back to you soon.';
+          } else {
+            statusBox.style.color = '#b91c1c';
+            statusBox.textContent = 'Something went wrong. Please try again or contact us directly at ironrootsbayarea@gmail.com.';
+          }
+        } catch (error) {
+          statusBox.style.color = '#b91c1c';
+          statusBox.textContent = 'Something went wrong. Please try again or contact us directly at ironrootsbayarea@gmail.com.';
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '1';
+          submitBtn.style.cursor = 'pointer';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
